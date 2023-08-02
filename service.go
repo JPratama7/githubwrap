@@ -19,3 +19,12 @@ func NewGithubClient(httpClient *http.Client) (client *github.Client) {
 	client = github.NewClient(httpClient)
 	return
 }
+
+func NewWrapper(client *github.Client, owner, repo string) (wrapper *Wrapper) {
+	wrapper = &Wrapper{
+		client: client,
+		owner:  owner,
+		repo:   repo,
+	}
+	return
+}
