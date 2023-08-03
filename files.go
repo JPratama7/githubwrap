@@ -12,3 +12,13 @@ func (wrp *Wrapper) UploadFile(ctx context.Context, path, message string, conten
 	})
 	return
 }
+
+func (wrp *Wrapper) GetLink(ctx context.Context, path string) (link string, err error) {
+	file, _, _, err := wrp.client.Repositories.GetContents(ctx, wrp.owner, wrp.repo, path, &github.RepositoryContentGetOptions{})
+	if err != nil || file.DownloadURL == nil {
+		return
+	}
+
+	link = *file.DownloadURL
+	return
+}
