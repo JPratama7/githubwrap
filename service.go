@@ -8,6 +8,10 @@ import (
 )
 
 func NewOauth2Client(ctx context.Context, accessToken string) (client *http.Client) {
+	if accessToken == "" {
+		panic("access token is empty")
+	}
+
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: accessToken},
 	)
