@@ -1,8 +1,8 @@
 package githubwrap
 
-import "github.com/google/go-github/v53/github"
+import "github.com/google/go-github/v55/github"
 
-type Wrapper struct {
+type FilesService struct {
 	client *github.Client
 	owner  string
 	repo   string
