@@ -7,11 +7,12 @@ import (
 	"io"
 )
 
-func (wrp *FilesService) Create(ctx context.Context, path, message string, content []byte) (err error) {
-	_, _, err = wrp.client.Repositories.CreateFile(ctx, wrp.owner, wrp.repo, path, &github.RepositoryContentFileOptions{
+func (wrp *FilesService) Create(ctx context.Context, path, message string, content []byte) (repopath string, err error) {
+	cur, _, err := wrp.client.Repositories.CreateFile(ctx, wrp.owner, wrp.repo, path, &github.RepositoryContentFileOptions{
 		Content: content,
 		Message: github.String(message),
 	})
+	repopath = cur.Content.GetPath()
 	return
 }
 
