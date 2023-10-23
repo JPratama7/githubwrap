@@ -3,7 +3,7 @@ package githubwrap
 import (
 	"context"
 	"errors"
-	"github.com/google/go-github/v55/github"
+	"github.com/google/go-github/v56/github"
 	"io"
 )
 

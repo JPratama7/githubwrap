@@ -1,6 +1,6 @@
 package githubwrap
 
-import "github.com/google/go-github/v55/github"
+import "github.com/google/go-github/v56/github"
 
 type FilesService struct {
 	client *github.Client
