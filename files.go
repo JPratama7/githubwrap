@@ -57,6 +57,15 @@ func (wrp *FilesService) GetLink(ctx context.Context, path string) (link string,
 	link = *file.DownloadURL
 	return
 }
+func (wrp *FilesService) GetPath(ctx context.Context, path string) (link string, err error) {
+	file, err := wrp.GetContent(ctx, path)
+	if err != nil || file.Path == nil {
+		return
+	}
+
+	link = *file.Path
+	return
+}
 
 func (wrp *FilesService) ChangeRepository(owner, repo string) {
 	wrp.owner = owner
