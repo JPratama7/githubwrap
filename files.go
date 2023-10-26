@@ -12,7 +12,9 @@ func (wrp *FilesService) Create(ctx context.Context, path, message string, conte
 		Content: content,
 		Message: github.String(message),
 	})
-	repopath = cur.Content.GetPath()
+	if ctn := cur.GetContent(); ctn != nil {
+		repopath = ctn.GetPath()
+	}
 	return
 }
 
