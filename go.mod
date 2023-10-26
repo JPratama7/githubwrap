@@ -3,9 +3,9 @@ module github.com/JPratama7/githubwrap
 go 1.20
 
 require (
-	github.com/gofri/go-github-ratelimit v1.0.4
+	github.com/gofri/go-github-ratelimit v1.0.5
 	github.com/google/go-github/v56 v56.0.0
-	golang.org/x/oauth2 v0.12.0
+	golang.org/x/oauth2 v0.13.0
 )
 
 require (
